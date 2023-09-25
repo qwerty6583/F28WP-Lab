@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Croissant+One');
+
 /* Reset Styles */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Croissant One', Arial, sans-serif; /* custom google font */
     color: #505050;
 }
 
 /* Header Styles */
 header {
-    background-color: #282689;
+    background-color: #ff9757;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -55,6 +57,17 @@ nav a {
 
 nav a:hover {
     background-color: #505050;  /* Darker shade for hover */
+}
+
+nav a.active {
+    background-color: #8f8f8f;  /* Highlight current page */
+}
+
+/* Sticky Header */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 
 /* Banner Styles */

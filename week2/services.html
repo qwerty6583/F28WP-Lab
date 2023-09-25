@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Services - Wanderlust Voyages</title>
+  <title>Services - GIGA Voyages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -51,13 +51,13 @@
 <body>
  <div>
   <header>
-    <h1 class="headeraH1">Wanderlust Voyages | Travel Agency</h1>
+    <h1 class="headeraH1">GIGA Voyages | Travel Agency</h1>
 	</header>
-    <nav>
+    <nav id="stickyheader">
       <ul>
          <li><a href="index.html">Home</a></li>
          <li><a href="about.html">About</a></li>
-         <li><a href="services.html">Services</a></li>
+         <li><a class="active" href="services.html">Services</a></li>
          <li><a href="gallery.html">Gallery</a></li>
          <li><a href="contact.html">Contact</a></li>
          <li><a href="tasks.html">Tasks</a></li>
@@ -93,8 +93,8 @@
 
       <!-- Call to Action Section -->
 <div class="cta-container">
-   <h2>Ready to Experience Our Services?</h2>
-   <p>Join us today and discover the difference we can make for you!</p>
+   <h2>Ready to Experience GIGA Services?</h2>
+   <p>Join GIGA today and discover the difference we can make for you!</p>
    <a href="contact.html" class="cta-button">Contact Us Now</a>
 </div>
 
@@ -105,8 +105,23 @@
         <li><a href="https://twitter.com/">Twitter</a></li>
         <li ><a href="https://www.instagram.com/">Instagram</a></li>
       </ul>
-    <p >&copy; 2024 Wanderlust Voyages | Travel Agency. All rights reserved.</p>
+    <p >&copy; 2024 GIGA Voyages | Travel Agency. All rights reserved.</p>
   </footer>
   </div>
+<script>
+var header = document.getElementById("stickyheader");
+var sticky = header.offsetTop;
+window.onscroll = function() { stickyHeader() };
+function stickyHeader() {
+  if (window.pageYOffset > sticky)
+  {
+    header.classList.add("sticky");
+  }
+  else
+  {
+    header.classList.remove("sticky");
+  }
+}
+</script>
 </body>
 </html>
