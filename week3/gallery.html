@@ -142,14 +142,14 @@ arrows) */
       </div>
 
       <div class="gallery-container">
-        <img src="images/1.jpeg" alt="Spa Image 1">
-        <img src="images/2.jpeg" alt="Spa Image 2">
-        <img src="images/3.jpeg" alt="Spa Image 3">
-        <img src="images/4.jpeg" alt="Spa Image 4">
-        <img src="images/5.jpeg" alt="Spa Image 5">
-        <img src="images/6.jpeg" alt="Spa Image 6">
-        <img src="images/7.jpeg" alt="Spa Image 7">
-        <img src="images/8.jpeg" alt="Spa Image 7">
+        <img src="images/slide1.jpg" alt="Spa Image 1">
+        <img src="images/slide2.jpg" alt="Spa Image 2">
+        <img src="images/slide3.jpg" alt="Spa Image 3">
+        <img src="images/slide4.jpg" alt="Spa Image 4">
+        <img src="images/slide5.jpg" alt="Spa Image 5">
+        <img src="images/slide6.jpg" alt="Spa Image 6">
+        <img src="images/slide7.jpg" alt="Spa Image 7">
+        <img src="images/slide8.jpg" alt="Spa Image 7">
       </div>
       <!-- Call to Action -->
       <section class="cta-container">
@@ -200,15 +200,15 @@ arrows) */
       {
         dots[i].className = dots[i].className.replace(" active", "");
       }*/
-      slides[slideIndex-1].style.display = "block";     // display current slide
+      slides[slideIndex - 1].style.display = "block";     // display current slide
       //dots[slideIndex-1].className += " active";        
       //captionText.innerHTML = dots[slideIndex-1];
-      
+
     }
   </script>
   <script>
     const setError = element => {
-      
+
     }
     const setSuccess = element => {
       const inputControl = element.parentElement;
@@ -219,11 +219,10 @@ arrows) */
     }
     const validateInput = () => {
       const usernameValue = username.value.trim();
-      if (usernameValue == '')
-      {
+      if (usernameValue == '') {
         setError(username, "username is required");
       }
-      else { setSuccess(username);}
+      else { setSuccess(username); }
     };
   </script>
   <script>
