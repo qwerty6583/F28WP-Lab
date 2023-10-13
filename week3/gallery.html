@@ -1,31 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Gallery - GIGA Voyages</title>
   <link rel="stylesheet" href="style.css">
   <style>
-   .gallery-container {
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	margin-top: 40px;
-  }
+    .gallery-container {
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
 
-   .gallery-container img {
-	width: 24%;
-	margin-bottom: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
+    .gallery-container img {
+      width: 24%;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .slideshow-img {
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    /* Position the image container (needed to position the left and right
+arrows) */
+    .container {
+      position: relative;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+      display: none;
+    }
+
+    /* Add a pointer when hovering over the thumbnail images */
+    .cursor {
+      cursor: pointer;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      width: auto;
+      padding: 16px;
+      margin-top: -50px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
- <div>
-  <header>
-    <h1 class="headeraH1">GIGA Voyages | Travel Agency</h1>
-	</header>
+  <div>
+    <header>
+      <h1 class="headeraH1">GIGA Voyages | Travel Agency</h1>
+    </header>
     <nav id="stickyheader">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -34,53 +99,146 @@
         <li><a class="active" href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="tasks.html">Tasks</a></li>
-    </ul>
+      </ul>
     </nav>
-  
-  <main class="services">
+
+    <main class="services">
       <h1>Gallery</h1>
+      <div class="container">
+        <div class="mySlides">
+          <div class="numbertext">1 / 8</div>
+          <img src="images/slide1.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">2 / 8</div>
+          <img src="images/slide2.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">3 / 8</div>
+          <img src="images/slide3.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">4 / 8</div>
+          <img src="images/slide4.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">5 / 8</div>
+          <img src="images/slide5.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">6 / 8</div>
+          <img src="images/slide6.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">7 / 8</div>
+          <img src="images/slide7.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <div class="mySlides">
+          <div class="numbertext">8 / 8</div>
+          <img src="images/slide8.jpg" alt="Gallery slide show" class="slideshow-img">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)"></a>
+        <a class="next" onclick="plusSlides(1)"></a>
+      </div>
 
-		<div class="gallery-container">
-			<img src="images/1.jpeg" alt="Spa Image 1">
-			<img src="images/2.jpeg" alt="Spa Image 2">
-			<img src="images/3.jpeg" alt="Spa Image 3">
-			<img src="images/4.jpeg" alt="Spa Image 4">
-			<img src="images/5.jpeg" alt="Spa Image 5">
-			<img src="images/6.jpeg" alt="Spa Image 6">
-			<img src="images/7.jpeg" alt="Spa Image 7">
-			<img src="images/8.jpeg" alt="Spa Image 7">
-		</div>
-   <!-- Call to Action -->
-   <section class="cta-container">
-    <h2>Ready to Experience GIGA Services?</h2>
-    <p>Join GIGA today and discover the difference we can make for you!</p>
-    <a href="contact.html" class="cta-button">Contact Us Now</a>
-  </section>
+      <div class="gallery-container">
+        <img src="images/1.jpeg" alt="Spa Image 1">
+        <img src="images/2.jpeg" alt="Spa Image 2">
+        <img src="images/3.jpeg" alt="Spa Image 3">
+        <img src="images/4.jpeg" alt="Spa Image 4">
+        <img src="images/5.jpeg" alt="Spa Image 5">
+        <img src="images/6.jpeg" alt="Spa Image 6">
+        <img src="images/7.jpeg" alt="Spa Image 7">
+        <img src="images/8.jpeg" alt="Spa Image 7">
+      </div>
+      <!-- Call to Action -->
+      <section class="cta-container">
+        <h2>Ready to Experience GIGA Services?</h2>
+        <p>Join GIGA today and discover the difference we can make for you!</p>
+        <a href="contact.html" class="cta-button">Contact Us Now</a>
+      </section>
 
-  </main>
-  <footer>
+    </main>
+    <footer>
       <ul>
         <li><a href="https://www.facebook.com/">Facebook</a></li>
         <li><a href="https://twitter.com/">Twitter</a></li>
-        <li ><a href="https://www.instagram.com/">Instagram</a></li>
+        <li><a href="https://www.instagram.com/">Instagram</a></li>
       </ul>
-    <p >&copy; 2024 GIGA Voyages | Travel Agency. All rights reserved.</p>
-  </footer>
- </div>
-<script>
-var header = document.getElementById("stickyheader");
-var sticky = header.offsetTop;
-window.onscroll = function() { stickyHeader() };
-function stickyHeader() {
-  if (window.pageYOffset > sticky)
-  {
-    header.classList.add("sticky");
-  }
-  else
-  {
-    header.classList.remove("sticky");
-  }
-}
-</script>
+      <p>&copy; 2024 GIGA Voyages | Travel Agency. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    let slideIndex = 1;       // variable to track current slide position
+    showSlides(slideIndex);
+    // functions for navigating slides
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      /*let dots = document.getElementsByClassName("demo");
+      let captionText = documemt.getElementById("caption");*/
+
+      if (n > slides.length)                // wrap back to the first slide if on last slide
+      {
+        slideIndex = 1;
+      }
+      if (n < 1)                            // wrap to the last slide if on first slide
+      {
+        slideIndex = slides.length;
+      }
+      for (i = 0; i < slides.length; i++)   // hide slides initially
+      {
+        slides[i].style.display = "none";
+      }
+      /*for (i = 0; i < dots.length; i++)     // remove "active" from all dots
+      {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }*/
+      slides[slideIndex-1].style.display = "block";     // display current slide
+      //dots[slideIndex-1].className += " active";        
+      //captionText.innerHTML = dots[slideIndex-1];
+      
+    }
+  </script>
+  <script>
+    const setError = element => {
+      
+    }
+    const setSuccess = element => {
+      const inputControl = element.parentElement;
+      const errorDisplay = inputControl.querySelector('.error');
+      errorDisplay.innerText = '';
+      inputControl.classList.add('success');
+      inputControl.classList.remove('error');
+    }
+    const validateInput = () => {
+      const usernameValue = username.value.trim();
+      if (usernameValue == '')
+      {
+        setError(username, "username is required");
+      }
+      else { setSuccess(username);}
+    };
+  </script>
+  <script>
+    var header = document.getElementById("stickyheader");
+    var sticky = header.offsetTop;
+    window.onscroll = function () { stickyHeader() };
+    function stickyHeader() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      }
+      else {
+        header.classList.remove("sticky");
+      }
+    }
+  </script>
 </body>
+
 </html>
