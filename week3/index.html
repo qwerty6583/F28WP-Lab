@@ -45,6 +45,50 @@
         <p>We provide top-notch services to our clients.</p>
       </section>
 
+      <!-- Mermaid Section -->
+      <section>
+        <h1>Here is some Mermaid graph!</h1>
+        <div class="mermaid">
+          graph LR
+          A --- B
+          B-->C[fa:fa-ban forbidden]
+          B-->D(fa:fa-spinner);
+        </div>
+      </section>
+
+      <!-- Leaflet Section -->
+      <section>
+        <h1>Here is some Leaflet too!</h1>
+        <div id="map" style="width: 300px; height: 200px;"></div>
+      </section>
+
+      <!-- Three Section -->
+      <section>
+        <h1>Three example at the bottom of the page!</h1>
+        <div id="three container">
+          <script type="module">
+            import * as THREE from 'three';
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+const cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
+camera.position.z = 5;
+function animate() {
+	requestAnimationFrame( animate );
+	cube.rotation.x += 0.01;
+	cube.rotation.y += 0.01;
+	renderer.render( scene, camera );
+}
+animate();
+          </script>
+        </div>
+      </section>
+
       <!-- Our Services -->
       <section>
         <h2>Our Services</h2>
@@ -101,8 +145,9 @@
       </ul>
       <p>&copy; 2024 GIGA Voyages | Travel Agency. All rights reserved.</p>
     </footer>
-  </div>
+</div>
 <script>
+// *** sticky header ***
 var header = document.getElementById("stickyheader");
 var sticky = header.offsetTop;
 window.onscroll = function() { stickyHeader() };
@@ -135,9 +180,36 @@ script.onload = function()
   // console.log( initCookieConsent );
 }
 console.log('ready');
-
-
-
+</script>
+<!-- Mermaid -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin="">
+</script>
+<script>
+  const map = L.map('map').setView([51.505, -0.09], 13);
+  const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+</script>
+<!-- Three -->
+<script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three/examples/jsm/"
+    }
+  }
 </script>
 </body>
 </html>
