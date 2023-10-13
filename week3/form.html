@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation - GIGA Voyages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Style for the form: setting width, auto margin for centering, padding,
+background color, border radius for rounded corners, and font size */
+    #form {
+      width: 300px;
+      margin: 20vh auto 0 auto;
+      /* This centers the form vertically and
+horizontally */
+      padding: 20px;
+      background-color: whitesmoke;
+      /* Light gray background for the form */
+      border-radius: 4px;
+      /* Rounded corners for the form */
+      font-size: 12px;
+    }
+
+    /* Style for the form's heading: setting the text color and alignment */
+    #form h1 {
+      color: #0f2027;
+      /* Dark text color for the heading */
+      text-align: center;
+      /* Center-align the heading */
+    }
+
+    /* Style for the form's button: padding, top margin, full width, text color,
+background color, no border, and rounded corners */
+    #form button {
+      padding: 10px;
+      margin-top: 10px;
+      /* Space above the button */
+      width: 100%;
+      /* Make the button expand the full width of the form */
+      color: white;
+      /* White text color for the button */
+      background-color: rgb(41, 57, 194);
+      /* Blue background color for the button
+*/
+      border: none;
+      /* Remove the default border */
+      border-radius: 4px;
+      /* Rounded corners for the button */
+    }
+
+    /* Container for input fields: using flexbox for layout, column direction */
+    .input-control {
+      display: flex;
+      flex-direction: column;
+      /* Stack the children (label, input, error message)
+vertically */
+    }
+
+    /* Style for input fields inside the container: border style, rounded corners,
+block-level display, font size, padding, full width */
+    .input-control input {
+      border: 2px solid #f0f0f0;
+      /* Light gray border for the inputs */
+      border-radius: 4px;
+      /* Rounded corners for the inputs */
+      display: block;
+      /* Display input field as a block */
+      font-size: 12px;
+      /* Text size within the input field */
+      padding: 10px;
+      /* Space inside the input field */
+      width: 100%;
+      /* Input field takes up 100% of the form's width */
+    }
+
+    /* Remove focus outline from input fields */
+    .input-control input:focus {
+      outline: 0;
+      /* Remove outline when input is focused */
+    }
+
+    /* Style for input fields with class "success": green border */
+    .input-control.success input {
+      border-color: #09c372;
+      /* Green border to indicate successful input */
+    }
+
+    /* Style for input fields with class "error": red border */
+    .input-control.error input {
+      border-color: #ff3860;
+      /* Red border to indicate an error in input */
+    }
+
+    /* Style for the error message: text color, font size, and height */
+    .input-control .error {
+      color: #ff3860;
+      /* Red text color for error messages */
+      font-size: 9px;
+      /* Smaller font size for error messages */
+      height: 13px;
+      /* Explicit height to ensure consistent spacing */
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <header>
+      <h1 class="headeraH1">GIGA Voyages | Travel Agency</h1>
+    </header>
+    <nav id="stickyheader">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Gallery</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a class="active" href="form.html">Form</a></li>
+      </ul>
+    </nav>
+
+    <div id="form">
+      <h1>Form Validation</h1>
+      <form method="post" action="#">
+        <div class="input-control">Username:
+          <input type="text" id="username">
+          <div class="error"></div>
+        </div>
+        <div class="input-control">Email:
+          <input type="email" id="email">
+          <div class="error"></div>
+        </div>
+        <div class="input-control">Password:
+          <input type="password" id="password">
+          <div class="error"></div>
+        </div>
+        <div class="input-control">Confirm Password:
+          <input type="password" id="confirmpassword">
+          <div class="error"></div>
+        </div>
+        <button type="submit" onclick="validateInput">Submit</button>
+      </form>
+
+    </div>
+    <footer>
+      <ul>
+        <li><a href="https://www.facebook.com/">Facebook</a></li>
+        <li><a href="https://twitter.com/">Twitter</a></li>
+        <li><a href="https://www.instagram.com/">Instagram</a></li>
+      </ul>
+      <p>&copy; 2024 GIGA Voyages | Travel Agency. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    // form and newform.html ??
+    let usernameInput
+    let username;
+
+    const setError = element => {
+
+    }
+    const setSuccess = element => {
+      const inputControl = element.parentElement;
+      const errorDisplay = inputControl.querySelector('.error');
+      errorDisplay.innerText = '';
+      inputControl.classList.add('success');
+      inputControl.classList.remove('error');
+    }
+    const validateInput = () => {
+      const usernameValue = username.value.trim();
+      if (usernameValue == '') {
+        setError(username, "username is required");
+      }
+      else { setSuccess(username); }
+    };
+  </script>
+  <script>
+    var header = document.getElementById("stickyheader");
+    var sticky = header.offsetTop;
+    window.onscroll = function () { stickyHeader() };
+    function stickyHeader() {
+      if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+      }
+      else {
+        header.classList.remove("sticky");
+      }
+    }
+  </script>
+</body>
+
+</html>
