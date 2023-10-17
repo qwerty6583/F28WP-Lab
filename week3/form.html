@@ -109,7 +109,7 @@ block-level display, font size, padding, full width */
     <header>
       <h1 class="headeraH1">GIGA Voyages | Travel Agency</h1>
     </header>
-    <nav id="stickyheader">
+    <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -175,19 +175,6 @@ block-level display, font size, padding, full width */
       }
       else { setSuccess(username); }
     };
-  </script>
-  <script>
-    var header = document.getElementById("stickyheader");
-    var sticky = header.offsetTop;
-    window.onscroll = function () { stickyHeader() };
-    function stickyHeader() {
-      if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-      }
-      else {
-        header.classList.remove("sticky");
-      }
-    }
   </script>
 </body>
 
