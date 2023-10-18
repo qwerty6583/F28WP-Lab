@@ -123,26 +123,25 @@ block-level display, font size, padding, full width */
 
     <div id="form">
       <h1>Form Validation</h1>
-      <form method="post" action="#">
+      <form method="post" onsubmit="return validateInput()" action="#">   
         <div class="input-control">Username:
-          <input type="text" id="username">
+          <input type="text" id="username" placeholder="Enter your username">
           <div class="error"></div>
         </div>
         <div class="input-control">Email:
-          <input type="email" id="email">
+          <input type="email" id="email" placeholder="Enter your email">
           <div class="error"></div>
         </div>
         <div class="input-control">Password:
-          <input type="password" id="password">
+          <input type="password" id="password" placeholder="Enter your password">
           <div class="error"></div>
         </div>
         <div class="input-control">Confirm Password:
-          <input type="password" id="confirmpassword">
+          <input type="password" id="confirmpassword" placeholder="Repeat your password">
           <div class="error"></div>
         </div>
-        <button type="submit" onclick="validateInput">Submit</button>
+        <button type="submit">Submit</button>
       </form>
-
     </div>
     <footer>
       <ul>
@@ -154,12 +153,25 @@ block-level display, font size, padding, full width */
     </footer>
   </div>
   <script>
-    // form and newform.html ??
-    let usernameInput
-    let username;
+    let username = document.getElementById('username');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let confirmpassword = document.getElementById('confirmpassword');
 
-    const setError = element => {
+    function initializeForm() {
+      username.addEventListener('input', validateUsername);
+      email.addEventListener('input', validateEmail);
+      password.addEventListener('input', validatePassword);
+      password.addEventListener('input', validateConfirmpassword)
+      confirmpassword.addEventListener('input', validateConfirmpassword);
+    }
 
+    const setError = (element, errorText) => {
+      const inputControl = element.parentElement;
+      const errorDisplay = inputControl.querySelector('.error');
+      errorDisplay.innerText = errorText;
+      inputControl.classList.add('error');
+      inputControl.classList.remove('success');
     }
     const setSuccess = element => {
       const inputControl = element.parentElement;
@@ -168,13 +180,76 @@ block-level display, font size, padding, full width */
       inputControl.classList.add('success');
       inputControl.classList.remove('error');
     }
-    const validateInput = () => {
-      const usernameValue = username.value.trim();
-      if (usernameValue == '') {
-        setError(username, "username is required");
+    const validateUsername = () => {
+      const inputValue = username.value.trim();
+      if (inputValue == '') {
+        setError(username, "Username is required");
       }
       else { setSuccess(username); }
     };
+    const validateEmail = () => {
+      const inputValue = email.value.trim();
+      const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      if (inputValue == '') {
+        setError(email, "Email is required");
+      }
+      else
+      {
+        if (emailPattern.test(inputValue)) {
+        setSuccess(email);
+        }
+        else { 
+          setError(email, "Valid email format is required"); 
+        }
+      }
+    };
+    const validatePassword = () => {
+      const inputValue = password.value;
+      const passwordPattern = /^.{8,}$/;
+      if (inputValue == '') {
+        setError(password, "Password is required");
+      }
+      else { 
+        if (passwordPattern.test(inputValue)) {
+          setSuccess(password);
+        }
+        else {
+          setError(password, "Password must be at least 8 characters long")
+        }
+      }
+    };
+    const validateConfirmpassword = () => {
+      const inputValue = confirmpassword.value;
+      if (inputValue == '') {
+        setError(confirmpassword, "Password confirm is required");
+      }
+      else { 
+        if (inputValue == password.value) {
+          setSuccess(confirmpassword);
+        }
+        else {
+          setError(confirmpassword, "Passwords don't match");
+        }
+      }
+    };
+
+    function validateInput() {
+      validateUsername();
+      validateEmail();
+      validatePassword();
+      validateConfirmpassword();
+      const inputControl = document.getElementsByClassName('input-control');
+      for (let i = 0; i < inputControl.length; i++)
+      {
+        if (inputControl[i].classList.contains('error'))
+        {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    document.addEventListener('DOMContentLoaded', initializeForm);
   </script>
 </body>
 
