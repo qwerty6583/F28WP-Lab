@@ -158,6 +158,9 @@ block-level display, font size, padding, full width */
     let password = document.getElementById('password');
     let confirmpassword = document.getElementById('confirmpassword');
 
+    // add event listeners to the input fields for realtime validation
+    // note: password field also calls validation for password confirmation
+    // to prevent password confirmation from staying invalid even after editing password
     function initializeForm() {
       username.addEventListener('input', validateUsername);
       email.addEventListener('input', validateEmail);
@@ -165,7 +168,8 @@ block-level display, font size, padding, full width */
       password.addEventListener('input', validateConfirmpassword)
       confirmpassword.addEventListener('input', validateConfirmpassword);
     }
-
+    // gets the parent of the input field, adds error message and makes the border red
+    // by adding 'error' and removing 'success' class
     const setError = (element, errorText) => {
       const inputControl = element.parentElement;
       const errorDisplay = inputControl.querySelector('.error');
@@ -173,6 +177,8 @@ block-level display, font size, padding, full width */
       inputControl.classList.add('error');
       inputControl.classList.remove('success');
     }
+    // from lab, gets the parent of the input field, removes error message and makes the border green
+    // by adding 'success' and removing 'error' class
     const setSuccess = element => {
       const inputControl = element.parentElement;
       const errorDisplay = inputControl.querySelector('.error');
@@ -180,6 +186,7 @@ block-level display, font size, padding, full width */
       inputControl.classList.add('success');
       inputControl.classList.remove('error');
     }
+    // validates username if it's not empty
     const validateUsername = () => {
       const inputValue = username.value.trim();
       if (inputValue == '') {
@@ -187,9 +194,10 @@ block-level display, font size, padding, full width */
       }
       else { setSuccess(username); }
     };
+    // validates the email if it's not empty and in proper format
     const validateEmail = () => {
       const inputValue = email.value.trim();
-      const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+      const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;      // email must have proper format like 'example@domain.com'
       if (inputValue == '') {
         setError(email, "Email is required");
       }
@@ -203,9 +211,10 @@ block-level display, font size, padding, full width */
         }
       }
     };
+    // validates the password if it's not empty and at least 8 symbols long
     const validatePassword = () => {
       const inputValue = password.value;
-      const passwordPattern = /^.{8,}$/;
+      const passwordPattern = /^.{8,}$/;      // minimum 8 symbols password
       if (inputValue == '') {
         setError(password, "Password is required");
       }
@@ -218,13 +227,14 @@ block-level display, font size, padding, full width */
         }
       }
     };
+    // validates password confirmation if it's not empty and matches the password
     const validateConfirmpassword = () => {
       const inputValue = confirmpassword.value;
       if (inputValue == '') {
         setError(confirmpassword, "Password confirm is required");
       }
       else { 
-        if (inputValue == password.value) {
+        if (inputValue == password.value) {   // passwords must match
           setSuccess(confirmpassword);
         }
         else {
@@ -233,6 +243,8 @@ block-level display, font size, padding, full width */
       }
     };
 
+    // upon clicking the button validate all input fields first, prevent submission if at 
+    // least one field has an error
     function validateInput() {
       validateUsername();
       validateEmail();
@@ -248,7 +260,7 @@ block-level display, font size, padding, full width */
       }
       return true;
     }
-
+    // initialize by adding all required event listeners upon load
     document.addEventListener('DOMContentLoaded', initializeForm);
   </script>
 </body>
