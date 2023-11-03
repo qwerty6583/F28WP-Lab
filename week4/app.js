@@ -28,9 +28,9 @@ function emptyCity() {
 function renderHTML(data) {
     var htmlString = "";
     var error = data.cod;
-    if (error != "200")
+    if (error != 200)
     {
-        if (error == "404")
+        if (error == 404)
         {
             htmlString += "<p>ERROR CODE "+ error + ". Can't find city name.</p>";
         }
