@@ -38,7 +38,7 @@ exports.login = async (req, res) => {
 					),
 					httpOnly: true
 				}
-				
+
 				res.cookie('jwt', token, cookieOptions);
 				res.status(200).redirect("/profile");
 			}
@@ -59,6 +59,7 @@ exports.logout = async (req, res) => {
 	res.status(200).redirect('/');
 };
 
+//function of isloggedin
 exports.isLoggedIn = async (req, res, next) => {
 	if (req.cookies.jwt) {
 		try {
