@@ -15,8 +15,13 @@ T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="a
 		<h1>User Authentication System With Node and Mysql</h1>
 		<ul>
 			<li><a href="/">Home</a></li>
-			<li><a href="">Login</a></li>
+			{{#if user}}
+			<li><a href="/profile">Profile</a></li>
+			<li><a href="/logout">Logout</a></li>
+			{{else}}
+			<li><a href="/login">Login</a></li>
 			<li><a href="/register">Register</a></li>
+			{{/if}}
 		</ul>
 	</nav>
 	<div class="container mt-4">
